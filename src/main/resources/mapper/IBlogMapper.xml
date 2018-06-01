@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="vic.mybatis.demo.base.blog.IBlogDao">
+ <select id="selectBlog" resultType="vic.mybatis.demo.base.blog.Blog">
+    SELECT * FROM blog where id=#{id}
+  </select>
+  <select id="selectBlogs" resultType="vic.mybatis.demo.base.blog.Blog">
+    select * from blog
+  </select>
+  <delete id="deleteBlog" >
+  	delete from blog where id=#{id}
+  </delete>
+  <insert id="insertBlog">
+	  insert into blog (id,title,date,authername,content)
+	  values (#{id},#{title},#{date},#{authername},#{content})
+	</insert>
+	<update id="updateBlog">
+	  update blog set
+	    title = #{title},
+	    date = #{date},
+	    authername = #{authername},
+	    content = #{content}
+	  where id = #{id}
+	</update>
+</mapper>
